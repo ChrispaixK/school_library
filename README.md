@@ -2,8 +2,7 @@
 
 # School_library
 
-> Create custom enumerables all? , any? and filter? 
-
+> Create an OOP school library App to record what books are in the library and who borrows them.
 
 ## Built With
 
