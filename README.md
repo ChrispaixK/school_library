@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Enumarable
+# School_library
 
 > Create custom enumerables all? , any? and filter? 
 
@@ -10,12 +10,6 @@
 - Ruby
 
 ## Authors
-
-👤 **Sidney**
-
-- GitHub: [XsidX](https://github.com/XsidX)
-- Twitter: [@\_sid_o](https://twitter.com/_sid_o_)
-- LinkedIn: [Sidney Kaguli](https://www.linkedin.com/in/sidney-kaguli)
 
 👤 **Chrispaix Kaze**
 
