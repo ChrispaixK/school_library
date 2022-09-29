@@ -3,8 +3,9 @@ require './rental'
 class Book
   attr_accessor :title, :author, :rentals
 
-  def initialize(label, author)
-    @title = label
+  def initialize(title, author)
+    @id = Time.new.to_i
+    @title = title
     @author = author
     @rentals = []
   end
