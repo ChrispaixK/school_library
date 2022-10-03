@@ -2,7 +2,6 @@ require_relative './app'
 require_relative './options'
 require_relative './actions'
 
-
 def main
   app = App.new
   option = 0
