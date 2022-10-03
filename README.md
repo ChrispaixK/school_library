@@ -8,6 +8,13 @@
 
 - Ruby
 
+## Getting started
+
+- Install Ruby on your machine. (How?)[https://www.ruby-lang.org/en/documentation/installation/]
+- Clone this repository
+- Go to school_library directory
+- Run `ruby main.rb`
+
 ## Authors
 
 👤 **Chrispaix Kaze**
@@ -20,7 +27,7 @@
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/ChrispaixK/school_library/issues).
 
 ## Show your support
 
@@ -32,4 +39,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./MIT.md) licensed.
