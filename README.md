@@ -23,6 +23,12 @@
 - Twitter: [@Chrispaix Kaze](https://twitter.com/ChrispaixK)
 - LinkedIn: [Chrispaix Kaze](https://www.linkedin.com/in/chrispaix-kaze-70445a175/)
 
+👤 **Fadahunsi seyi**
+
+- GitHub: [Fadahunsiseyi](https://github.com/Fadahunsiseyi)
+- Twitter: [Fadahunsiseyi_](https://twitter.com/@Fadahunsiseyi_)
+- LinkedIn: [fadahunsi-seyi-samuel](https://www.linkedin.com/in/fadahunsi-seyi-samuel-49191a209/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
