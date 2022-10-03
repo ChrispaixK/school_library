@@ -1,7 +1,6 @@
 require_relative './app'
 require_relative './options'
 
-
 def call_actions(option, app)
   case option
   when 1
@@ -84,7 +83,7 @@ def main
   option = 0
   puts 'Welcome to the Rental School Library App!'
   while option != 7
-    print_options
+    option.print_options
     option = gets.chomp.to_i
     if option.positive? && option < 7
       call_actions(option, app)
