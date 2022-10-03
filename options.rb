@@ -1,5 +1,5 @@
 class Option
-  def print_options
+  def self.print_options
     puts ''
     puts 'Please choose and option by entering a number:'
     puts '1 - List all books'
