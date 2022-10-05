@@ -64,6 +64,15 @@ class App
     end
   end
 
+    # add books in books.json file for future use
+    def register_books
+      registered_books = []
+      @books.each do |book|
+        registered_books.push({ title: book.title, author: book.author })
+      end
+      File.write('./books.json', JSON.dump(registered_books))
+    end
+
   def list_books
     if @books.length.positive?
       books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
