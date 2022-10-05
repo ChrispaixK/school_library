@@ -5,7 +5,6 @@ require_relative './rental'
 require_relative './classroom'
 require_relative './person'
 require 'json'
-require 'pry'
 class App
   attr_accessor :people, :books, :rentals, :classroom
 
@@ -22,18 +21,17 @@ class App
   # get people from the persons.json file and load them to the app
   def load_people
     people_file = File.read('./persons.json')
-    if people_file.length > 0
-      new_people = JSON.parse(people_file)
-      new_people.each do |person|
-        if person['class'] == 'Student'
-          student = Student.new(person['age'], person['name'],
-                                parent_permission: person['parent_permission'])
-          @people.push(student)
-        end
-        if person['class'] == 'Teacher'
-          teacher = Teacher.new(person['age'], person['specialization'], person['name'])
-          @people.push(teacher)
-        end
+    return unless people_file.length.positive?
+
+    new_people = JSON.parse(people_file)
+    new_people.each do |person|
+      if person['class'] == 'Student'
+        student = Student.new(person['age'], person['name'], parent_permission: person['parent_permission'])
+        @people.push(student)
+      end
+      if person['class'] == 'Teacher'
+        teacher = Teacher.new(person['age'], person['specialization'], person['name'])
+        @people.push(teacher)
       end
     end
   end
@@ -76,21 +74,18 @@ class App
   # load rentals from rentals.json file
   def load_rentals()
     rentals_file = File.read('./rentals.json')
-    if rentals_file.length > 0
-      new_rentals = JSON.parse(rentals_file)
-      new_rentals.each do |r|
-        binding.pry
-        rental = Rental.new(@books[r['book_index']], @people[r['person_index']])
-        binding.pry
-        rentals.push(rental)
-      end
+    return unless rentals_file.length.positive?
+
+    new_rentals = JSON.parse(rentals_file)
+    new_rentals.each do |r|
+      rental = Rental.new(@books[r['book_index']], @people[r['person_index']])
+      rentals.push(rental)
     end
   end
 
   def register_rentals
     registeredrentals = []
     @rentals.each do |rental|
-      binding.pry
       registeredrentals.push({ person_index: rental.p_i, book_index: rental.b_i })
     end
     File.write('./rentals.json', JSON.dump(registeredrentals))
