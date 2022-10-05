@@ -73,6 +73,20 @@ class App
       File.write('./books.json', JSON.dump(registered_books))
     end
 
+      #load rentals from rentals.json file
+  def load_rentals()
+    rentals_file = File.read('./rentals.json')
+    if (rentals_file.length > 0)
+      new_rentals = JSON.parse(rentals_file)
+      new_rentals.each do |r|
+       binding.pry()
+       rental = Rental.new(@books[r['book_index']],@people[r['person_index']])
+       binding.pry()
+       rentals.push(rental)
+      end
+    end
+  end
+
   def list_books
     if @books.length.positive?
       books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
