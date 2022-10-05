@@ -2,7 +2,7 @@ require './person'
 require './book'
 
 class Rental
-  attr_accessor :date, :book, :person, :p_i ,:b_i
+  attr_accessor :date, :book, :person, :p_i, :b_i
 
   def initialize(book, person)
     @date = Time.new.strftime('%Y-%m-%d %H:%M:%S')

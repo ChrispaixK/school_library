@@ -19,7 +19,7 @@ class App
     load_rentals
   end
 
-  #get people from the persons.json file and load them to the app
+  # get people from the persons.json file and load them to the app
   def load_people
     people_file = File.read('./persons.json')
     if people_file.length > 0
@@ -35,20 +35,20 @@ class App
           @people.push(teacher)
         end
       end
-    end   
+    end
   end
 
-  #add people in persons.json file for future use 
+  # add people in persons.json file for future use
   def register_person
     registered_persons = []
     @people.each do |person|
       if person.class.to_s == 'Teacher'
         registered_persons.push({ class: 'Teacher', age: person.age, specialization: person.specialization,
-                            name: person.name })
+                                  name: person.name })
       end
 
       if person.class.to_s == 'Student'
-        registered_persons.push({class:"Student", age: person.age, parent_permission: true, name: person.name })
+        registered_persons.push({ class: 'Student', age: person.age, parent_permission: true, name: person.name })
       end
     end
     File.write('./persons.json', JSON.dump(registered_persons))
@@ -64,25 +64,25 @@ class App
     end
   end
 
-    # add books in books.json file for future use
-    def register_books
-      registered_books = []
-      @books.each do |book|
-        registered_books.push({ title: book.title, author: book.author })
-      end
-      File.write('./books.json', JSON.dump(registered_books))
+  # add books in books.json file for future use
+  def register_books
+    registered_books = []
+    @books.each do |book|
+      registered_books.push({ title: book.title, author: book.author })
     end
+    File.write('./books.json', JSON.dump(registered_books))
+  end
 
-      #load rentals from rentals.json file
+  # load rentals from rentals.json file
   def load_rentals()
     rentals_file = File.read('./rentals.json')
-    if (rentals_file.length > 0)
+    if rentals_file.length > 0
       new_rentals = JSON.parse(rentals_file)
       new_rentals.each do |r|
-       binding.pry()
-       rental = Rental.new(@books[r['book_index']],@people[r['person_index']])
-       binding.pry()
-       rentals.push(rental)
+        binding.pry
+        rental = Rental.new(@books[r['book_index']], @people[r['person_index']])
+        binding.pry
+        rentals.push(rental)
       end
     end
   end
@@ -90,8 +90,8 @@ class App
   def register_rentals
     registeredrentals = []
     @rentals.each do |rental|
-      binding.pry()
-      registeredrentals.push({person_index:rental.p_i, book_index: rental.b_i})
+      binding.pry
+      registeredrentals.push({ person_index: rental.p_i, book_index: rental.b_i })
     end
     File.write('./rentals.json', JSON.dump(registeredrentals))
   end
@@ -134,11 +134,11 @@ class App
 
   def create_rental(person_index, book_index)
     puts @people[person_index].name
-    rental = Rental.new(@books[book_index],@people[person_index])
+    rental = Rental.new(@books[book_index], @people[person_index])
     rental.p_i = person_index
     rental.b_i = book_index
     @rentals.push(rental)
-    
+
     puts 'Rental created successfully'
   end
 
