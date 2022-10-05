@@ -12,9 +12,12 @@ def main
     if option.positive? && option < 7
       call_actions(option, app)
     elsif option == 7
-      puts 'See you later!'
+      app.register_person
+      app.register_books
+      app.register_rentals
+      puts 'See you later!👋'
     else
-      puts 'Invalid option'
+      puts '###=== 🤭 Invalid option ===###'
     end
   end
 end

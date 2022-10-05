@@ -4,7 +4,8 @@ require_relative './book'
 require_relative './rental'
 require_relative './classroom'
 require_relative './person'
-
+require 'json'
+require 'pry'
 class App
   attr_accessor :people, :books, :rentals, :classroom
 
@@ -13,6 +14,54 @@ class App
     @books = []
     @rentals = []
     @classroom = 'No Class'
+    load_people
+    load_books
+    load_rentals
+  end
+
+  #get people from the persons.json file and load them to the app
+  def load_people
+    people_file = File.read('./persons.json')
+    if people_file.length > 0
+      new_people = JSON.parse(people_file)
+      new_people.each do |person|
+        if person['class'] == 'Student'
+          student = Student.new(person['age'], person['name'],
+                                parent_permission: person['parent_permission'])
+          @people.push(student)
+        end
+        if person['class'] == 'Teacher'
+          teacher = Teacher.new(person['age'], person['specialization'], person['name'])
+          @people.push(teacher)
+        end
+      end
+    end   
+  end
+
+  #add people in persons.json file for future use 
+  def register_person
+    registered_persons = []
+    @people.each do |person|
+      if person.class.to_s == 'Teacher'
+        registered_persons.push({ class: 'Teacher', age: person.age, specialization: person.specialization,
+                            name: person.name })
+      end
+
+      if person.class.to_s == 'Student'
+        registered_persons.push({class:"Student", age: person.age, parent_permission: true, name: person.name })
+      end
+    end
+    File.write('./persons.json', JSON.dump(registered_persons))
+  end
+
+  # load all book in the app from books.json
+  def load_books
+    book_file = File.read('./books.json')
+    books = JSON.parse(book_file)
+    books.each do |book|
+      book_found = Book.new(book['title'], book['author'])
+      @books.push(book_found)
+    end
   end
 
   def list_books
@@ -34,7 +83,7 @@ class App
   end
 
   def create_student(age, name, parent_permission)
-    student = Student.new(age, name, @classroom, parent_permission: parent_permission)
+    student = Student.new(age, name, parent_permission: parent_permission)
     @people.push(student)
     puts 'Student created successfully'
   end
@@ -53,8 +102,11 @@ class App
 
   def create_rental(person_index, book_index)
     puts @people[person_index].name
-    rental = Rental.new(@people[person_index], @books[book_index])
+    rental = Rental.new(@books[book_index],@people[person_index])
+    rental.p_i = person_index
+    rental.b_i = book_index
     @rentals.push(rental)
+    
     puts 'Rental created successfully'
   end
 
@@ -62,7 +114,7 @@ class App
     arr = []
     rentals.each do |r|
       if r.book.id == person_id.to_i
-        arr.push(r.person.title)
+        arr.push(r.book.title)
       else
         p 'Nothing found'
       end
