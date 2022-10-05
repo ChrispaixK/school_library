@@ -87,6 +87,15 @@ class App
     end
   end
 
+  def register_rentals
+    registeredrentals = []
+    @rentals.each do |rental|
+      binding.pry()
+      registeredrentals.push({person_index:rental.p_i, book_index: rental.b_i})
+    end
+    File.write('./rentals.json', JSON.dump(registeredrentals))
+  end
+
   def list_books
     if @books.length.positive?
       books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
