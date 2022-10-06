@@ -10,4 +10,7 @@ describe Teacher do
     it "Should return the age of the teacher as 30" do
         expect(@teacher.age).to eq 30
     end
+    it "Should return the name of the teacher as Samuel" do
+        expect(@teacher.name).to eq 'Samuel'
+    end
 end
