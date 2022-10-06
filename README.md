@@ -14,6 +14,7 @@
 - Clone this repository
 - Go to school_library directory
 - Run `ruby main.rb`
+- Run `rspec` to run the tests
 
 ## Authors
 
