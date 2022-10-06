@@ -16,4 +16,7 @@ describe Teacher do
     it "Check if teacher is an instance of the Teacher class" do
         expect(@teacher).to be_an_instance_of Teacher
     end
+    it "Check if teacher has parent permission" do
+        expect(@teacher.parent_permission).to eq true
+    end
 end
