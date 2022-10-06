@@ -4,7 +4,6 @@ class Classroom
 
   def initialize(label)
     @label = label
-    binding.pry
     @students = []
   end
 
