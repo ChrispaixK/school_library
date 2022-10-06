@@ -6,11 +6,11 @@ describe Person do
     @book = Book.new('Blind Trust', 'Ed Millan')
   end
 
-  it 'Check if the name of person is correct'do
+  it 'Check if the name of person is correct' do
     expect(@person.name).to eq('George')
   end
 
-  it 'Check if the age of person is correct'do
+  it 'Check if the age of person is correct' do
     expect(@person.age).to eq(54)
   end
 
@@ -27,7 +27,6 @@ describe Person do
   end
 
   it 'Check the access of Person instance to can use service method' do
-    expect(@person.correct_name).to eq ("George")
+    expect(@person.correct_name).to eq('George')
   end
-
 end
