@@ -17,7 +17,7 @@ describe Student do
     expect(@student.parent_permission).to eq true
   end
 
-  it 'Expect that s@tudent is an instance of Student class' do
+  it 'Expect that @student is an instance of Student class' do
     expect(@student).to be_an_instance_of Student
   end
 
