@@ -44,5 +44,5 @@ describe 'Test factorials, fizzbuzz and reverse string' do
     it 'should return 7 for 7' do
       expect(@solver.fizzbuzz(7)).to eq(7)
     end
- end
+  end
 end
