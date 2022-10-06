@@ -13,4 +13,7 @@ describe Teacher do
     it "Should return the name of the teacher as Samuel" do
         expect(@teacher.name).to eq 'Samuel'
     end
+    it "Check if teacher is an instance of the Teacher class" do
+        expect(@teacher).to be_an_instance_of Teacher
+    end
 end
